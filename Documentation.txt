@@ -1,0 +1,195 @@
+Work details
+
+
+
+Iqama medical [IQMD]
+
+	- IqamaMedical_Get [To get all the employees whose stage_id == IQMD]
+
+	- IqamaMedical_UP = ????
+
+	- when clicked save then
+		- Stage_id should get updated (stage_id == MDIN (APMI))
+
+
+Medical Insurance [MDIN (APMI | RNMI)]
+
+	- IqamaMedicalInsurance_Get [To get all the employees whose stage_id == MDIN]
+
+   	[Apply for medical insurance (APMI)]
+	   - IqamaMedicalInsurance_Get [To get all the employees whose stage_id == MDIN (APMI)]
+	
+	   - when clicked save then
+		  - Stage_id should get updated (stage_id == MDIN (RNMI))
+
+
+	[Renew medical insurance (RNMI)  - month > 6 day > 1 exp == currentyear (1 july - 30 june)  ]
+
+	   - IqamaMedicalInsurance_Get
+	
+	   - when clicked save then
+		  - Stage_id should get updated (stage_id == SCE (SCE_IR))
+
+
+SCE  [ SCE (SCE_IR | SCE_PR | SCE_FA | SCE_FI | SCE_LNJW) ]
+
+
+	stageid = SCE
+	substage = IR
+
+	
+
+	- SCE_Get [show all the employees whose stage_id == SCE]
+
+	[Information Request (SCE_IR)]
+	- IqamaMedicalInsurance_Get [show all the employees whose stage_id == SCE_IR]
+	- when save clicked.
+		- Stage_id should get updated (stage_id => SCE_PR)
+
+	[PRO Intro & Bill (SCE_PR)]
+	- IqamaMedicalInsurance_Get [To get all the employees whose stage_id == SCE_PR]
+	- when save clicked.
+		- Stage_id should get updated (stage_id => SCE_FA)
+
+
+	[F&A Billing Process (SCE_FA)]
+	- IqamaMedicalInsurance_Get [To get all the employees whose stage_id == SCE_FA]
+	- when save clicked.
+		- Stage_id should get updated (stage_id => SCE_LNJW)
+
+
+	[Link to Jawazat (SCE_LNJW)]
+	- IqamaMedicalInsurance_Get [To get all the employees whose stage_id == SCE_LNJW]
+	- when save clicked.
+		- Stage_id should get updated (stage_id => SCE_PR)
+
+
+Trade Test [TT]
+
+	- TradeTest_GET [To get all the employees whose stage_id == TT]
+	- when save clicked.
+		- Stage_id should get updated (stage_id => SCE_PR)
+
+
+
+Work permit [ WP (WPE| GPE | WPF ) ]
+
+
+	- WorkPermit_Get [show all the employees whose stage_id == WP]
+
+	[Eligible for work permit (WPE) ]
+	- WorkPermit_Get [show all the employees whose stage_id == WPE]
+	- when save clicked.
+		- Stage_id should get updated (stage_id => GPE)
+
+	[Generate Work Permit  (GPE)]
+	- WorkPermit_Get [To get all the employees whose stage_id == GPE]
+	- when save clicked.
+		- Stage_id should get updated (stage_id => WPF)
+
+	[F&A Payment - WPF]
+	- WorkPermit_Get [To get all the employees whose stage_id == WPF]
+	- when save clicked.
+		- Stage_id should get updated (stage_id => ???    )
+
+
+
+
+
+
+To Change the current stage to another stage (t_VisaStage table)
+
+	- Parameters VISA_ID
+	- Existing STAGE_ID - N
+	- NEW STAGE_ID - Y
+
+	insert
+	from - current date
+	to 9999-12-31
+	
+	update
+	from - pres date
+	to - current new date
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SCE 
+	[Infomation request]	
+	- psno 
+	- visa no
+	- full name
+	- Reg type		[Blank]
+	- Profession		[Blank]
+	- information request	[Blank]
+
+	[PRO intro letter]
+	- psno 
+	- visa no
+	- full name
+	- Reg type
+	- Profession
+	- Introduction letter 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- SCE
+	- PSNO
+	- visa no
+	- full name
+	
+	[Info req]
+	- Reg type		[Blank]
+	- Profession		[Blank]
+	- information request	[Blank]
+	
+	[PRO] 
+	- Intro letter
+	- upload letter bill
+	
+	[F&A]
+	- bill processing
+	- SCE Approval 
+	- upload final invoice
+
+
+	[Upload to Jawazat]	
+	
+
+	# REMOVE FINAL INVOICE
+
+	
+
+
+	
+
+
+
+
+
+
+
