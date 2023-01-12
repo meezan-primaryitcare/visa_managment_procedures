@@ -25,7 +25,7 @@ BEGIN
 
 	from dbo.t_Visa vt LEFT JOIN dbo.t_IqamaMedicalInsurance iqmi ON vt.pkc_VisaId = iqmi.pkc_VisaId
 	LEFT JOIN dbo.t_VisaEmployee ve ON vt.fkc_EmployeeId = ve.pkc_EmployeeId
-	INNER JOIN dbo.t_VisaStage vs ON vt.pkc_VisaId = vs.pkc_VisaId where vs.c_StageId = 'MDIN'; 
+	INNER JOIN dbo.t_VisaStage vs ON vt.pkc_VisaId = vs.pkc_VisaId where vs.c_StageId = 'MDIN' and vs.d_ActiveFlg = 1; 
 
 	
 END

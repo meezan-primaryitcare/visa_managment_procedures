@@ -76,6 +76,8 @@ begin try
 				set c_TripEndTimeActual	=  @expDate
 				where  dbo.t_TripInfo.fkc_VisaId = @visa_Id;
 
+				
+
 			end
 			else
 			begin
@@ -140,6 +142,18 @@ begin try
 				 @existing_substage_id,
 				 @new_stage_id, 
 				 @new_substage_id	
+
+			-- Send to Medical Insurance
+				EXEC [dbo].[IqamaMedicalInsurance_UP]
+				@visaID = 23654171,
+				@class = NULL,
+				@policyNo = NULL,
+				@relation = NULL,
+				@healthDeclaration = NULL,
+				@createdBy = 'SYSTEM',
+				@effectiveDate = '2022-09-10 00:00:00.000',
+				@memberExpDate = '2023-09-10 00:00:00.000',
+				@renew = NULL
 
 
 			insert into dbo.AuditLog

@@ -13,8 +13,13 @@ EXEC	@return_value = [dbo].[IqamaMed_UP]
 		@remarks = N'2022-09-13T18:30:00.000Z',
 		@status = N'OK',
 		@createdBy = N'co',
-		@p_attachment = N'system'
+		@p_attachment = N'system',
+		@existing_stage_id		= N'IQMD',
+		@existing_substage_id		= N'1',
+		@new_stage_id				= N'MDIN',
+		@new_substage_id			= N'1'
 
 SELECT	'Return Value' = @return_value
 
 GO
+
